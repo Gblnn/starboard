@@ -1,4 +1,4 @@
-import { BottomNav } from "@/components/navigation/BottomNav";
+import { BottomNav } from "@/components/layout/BottomNav";
 import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
