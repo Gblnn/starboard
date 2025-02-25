@@ -16,6 +16,8 @@ export default defineConfig({
         description: "Navigate your digital journey",
         theme_color: "#000000",
         background_color: "#000000",
+        display: "standalone",
+        display_override: ["window-controls-overlay"],
         icons: [
           {
             src: "pwa-192x192.png",

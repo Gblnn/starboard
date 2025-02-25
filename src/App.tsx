@@ -5,10 +5,12 @@ import { router } from "./router";
 
 function App() {
   return (
-    <AuthProvider>
-      <PWAPrompt />
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <div className="min-h-screen bg-background pt-safe">
+      <AuthProvider>
+        <PWAPrompt />
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </div>
   );
 }
 
