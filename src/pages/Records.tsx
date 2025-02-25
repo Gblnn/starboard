@@ -1,6 +1,4 @@
 import { PageTransition } from "@/components/transitions/PageTransition";
-import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
 
 export const Records = () => {
   return (
@@ -12,12 +10,7 @@ export const Records = () => {
       </PageTransition>
 
       {/* Floating Action Button */}
-      <div className="fixed bottom-24 right-4 sm:bottom-8 sm:right-8 z-10">
-        <Button size="lg" className="rounded-full shadow-lg">
-          <Plus className="mr-2 h-5 w-5" />
-          Create Category
-        </Button>
-      </div>
+      <div className="fixed bottom-20 right-6 md:bottom-6 md:right-8 z-10"></div>
     </>
   );
 };
