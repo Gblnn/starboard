@@ -12,7 +12,7 @@ export const Dashboard = () => {
       <div className="mx-auto max-w-7xl space-y-6 md:space-y-8">
         {/* Header */}
         <div className="flex items-center justify-between p-8">
-          <h1 className="text-3xl font-semibold md:text-4xl">Dashboard</h1>
+          <h1 className="text-3xl font-semibold md:text-4xl">Dashboard v1</h1>
           <Button
             variant="ghost"
             size="icon"

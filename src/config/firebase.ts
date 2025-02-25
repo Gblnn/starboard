@@ -1,6 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  setPersistence,
+  browserLocalPersistence,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { connectAuthEmulator } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -11,6 +16,18 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
+// Initialize Firebase early
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+const auth = getAuth(app);
+
+// Enable persistent auth state immediately
+setPersistence(auth, browserLocalPersistence).catch(console.error);
+
+// Connect to emulator in development
+if (import.meta.env.DEV) {
+  connectAuthEmulator(auth, "http://127.0.0.1:9099");
+}
+
+const db = getFirestore(app);
+
+export { auth, db };

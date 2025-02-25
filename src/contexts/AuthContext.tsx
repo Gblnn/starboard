@@ -28,8 +28,8 @@ const AuthContext = createContext<AuthContextType>({
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(() => auth.currentUser);
+  const [loading, setLoading] = useState(!auth.currentUser);
 
   const setAuthPersistence = async (remember: boolean) => {
     try {
@@ -43,13 +43,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    // Check if we have a cached auth state
-    const cachedUser = auth.currentUser;
-    if (cachedUser) {
-      setUser(cachedUser);
-      setLoading(false);
-    }
-
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
@@ -58,8 +51,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => unsubscribe();
   }, []);
 
-  // Only show loading spinner for unauthed users
-  if (loading && !user) {
+  if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Spinner size="lg" />
