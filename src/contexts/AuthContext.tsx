@@ -27,9 +27,20 @@ const AuthContext = createContext<AuthContextType>({
   setAuthPersistence: async () => {},
 });
 
+// Get cached auth state
+const getCachedUser = () => {
+  try {
+    const cached = localStorage.getItem("auth_user");
+    return cached ? JSON.parse(cached) : null;
+  } catch {
+    return null;
+  }
+};
+
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(() => auth.currentUser);
-  const [loading, setLoading] = useState(!auth.currentUser);
+  // Initialize with cached user for instant auth state
+  const [user, setUser] = useState<User | null>(() => getCachedUser());
+  const [loading, setLoading] = useState(false);
 
   const setAuthPersistence = async (remember: boolean) => {
     try {
@@ -43,8 +54,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        // Cache user data
+        const userToCache = {
+          uid: firebaseUser.uid,
+          email: firebaseUser.email,
+          displayName: firebaseUser.displayName,
+          photoURL: firebaseUser.photoURL,
+        };
+        localStorage.setItem("auth_user", JSON.stringify(userToCache));
+      } else {
+        localStorage.removeItem("auth_user");
+      }
+      setUser(firebaseUser);
       setLoading(false);
     });
 
