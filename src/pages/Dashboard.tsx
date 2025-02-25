@@ -1,11 +1,52 @@
 import { PageTransition } from "@/components/transitions/PageTransition";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Inbox, Users, FileText } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { useAuth } from "@/contexts/AuthContext";
+import {
+  updateUserActivity,
+  subscribeToActiveUsers,
+} from "@/lib/firebase/activeUsers";
+import { FileText, Inbox } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const [activeUsers, setActiveUsers] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Update current user's activity status
+    if (user?.uid) {
+      updateUserActivity(user.uid);
+    }
+
+    // Set up activity update interval
+    const activityInterval = setInterval(() => {
+      if (user?.uid) {
+        updateUserActivity(user.uid);
+      }
+    }, 60000);
+
+    // Subscribe to active users updates
+    const unsubscribe = subscribeToActiveUsers((count) => {
+      setActiveUsers(count);
+      setIsLoading(false);
+    });
+
+    return () => {
+      clearInterval(activityInterval);
+      unsubscribe(); // Clean up the listener
+    };
+  }, [user]);
 
   return (
     <PageTransition>
@@ -43,17 +84,18 @@ export const Dashboard = () => {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Active Users
-                </CardTitle>
-                <Users className="h-4 w-4 text-muted-foreground" />
+              <CardHeader>
+                <CardTitle>Active Users</CardTitle>
+                <CardDescription>
+                  Currently active users in the app
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+573</div>
-                <p className="text-xs text-muted-foreground">
-                  +201 since last week
-                </p>
+                {isLoading ? (
+                  <Skeleton className="h-8 w-20" />
+                ) : (
+                  <div className="text-2xl font-bold">{activeUsers}</div>
+                )}
               </CardContent>
             </Card>
             {/* Add more stat cards */}
