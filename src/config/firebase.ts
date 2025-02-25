@@ -23,8 +23,8 @@ const auth = getAuth(app);
 // Enable persistent auth state immediately
 setPersistence(auth, browserLocalPersistence).catch(console.error);
 
-// Connect to emulator in development
-if (import.meta.env.DEV) {
+// Connect to emulator only if VITE_USE_FIREBASE_EMULATOR is set
+if (import.meta.env.VITE_USE_FIREBASE_EMULATOR === "true") {
   connectAuthEmulator(auth, "http://127.0.0.1:9099");
 }
 

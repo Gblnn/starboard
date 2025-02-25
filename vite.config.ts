@@ -14,7 +14,8 @@ export default defineConfig({
         name: "StarBoard",
         short_name: "StarBoard",
         description: "Navigate your digital journey",
-        theme_color: "#ffffff",
+        theme_color: "#000000",
+        background_color: "#000000",
         icons: [
           {
             src: "pwa-192x192.png",

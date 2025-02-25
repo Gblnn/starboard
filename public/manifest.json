@@ -4,8 +4,8 @@
   "description": "One stop dashboard for all records and documents",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "black",
+  "theme_color": "black",
   "icons": [
     {
       "src": "pwa-192x192.png",

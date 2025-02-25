@@ -60,6 +60,9 @@ export default {
   		screens: {
   			'xs': '480px',
   		},
+  		padding: {
+  			'safe': 'env(safe-area-inset-bottom)',
+  		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
