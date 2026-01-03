@@ -8,7 +8,7 @@ import { useAuth } from '../contexts/AuthContext';
 import DefaultDialog from '@/components/default-dialog';
 
 export const AdminPanel = () => {
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const [logoutPrompt, setLogoutPrompt] =  useState(false);
 
