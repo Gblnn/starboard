@@ -74,9 +74,9 @@ export const Login = () => {
 
         <div className="flex justify-center items-center flex-col rounded-2xl w-full max-w-md px-4">
           <div className="flex flex-col w-full gap-3 mt-8">
-            <h2 className="text-3xl sm:hidden font-semibold pl-2 mb-2">
+            {/* <h2 className="text-3xl sm:hidden font-semibold pl-2 mb-2">
               LOGIN
-            </h2>
+            </h2> */}
 
             <Input
             style={{fontSize:"1rem", padding:"1.5rem 1rem", borderRadius:"0.5rem"}} 
