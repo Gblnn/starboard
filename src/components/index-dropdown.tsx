@@ -83,7 +83,7 @@ export default function IndexDropDown(props:Props) {
           padding: "none",
           height: "2.5rem",
           width: "2.5rem",
-          background: "linear-gradient(180deg, midnightblue, mediumslateblue)",
+          background: "linear-gradient(180deg, mediumslateblue, midnightblue )",
           borderRadius: "0.375rem",
           color: "white",
     

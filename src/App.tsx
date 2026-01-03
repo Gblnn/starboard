@@ -21,7 +21,7 @@ import QuickLinks from './pages/quick-links'
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="starboard-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="starboard-theme">
       <AuthProvider>
         <BrowserRouter>
           <Routes>

@@ -1,7 +1,7 @@
 import Back from '@/components/back';
 import Directive from '@/components/directive';
 import IndexDropDown from '@/components/index-dropdown';
-import { LinkIcon, QrCode, UsersIcon } from 'lucide-react';
+import { FileArchive, LinkIcon, QrCode, UsersIcon } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -38,9 +38,10 @@ export const AdminPanel = () => {
           />
 
         <div style={{border:"", display:"flex", width:"100%", justifyContent:"", alignItems:"flex-start", padding:"1rem", marginTop:"4rem", overflowY:"auto", flexFlow:"column", gap:"0.5rem"}}>
-            <Directive width={"100%"} onClick={()=>navigate("/users")} icon={<UsersIcon color='salmon' width={"1rem"}/>} title={"User Management"}/>
-            <Directive width={"100%"} onClick={()=>navigate("/quick-links")}  icon={<LinkIcon width={"1rem"} color='mediumslateblue'/>} title={"Quick Links"}/>
-            <Directive width={"100%"} onClick={()=>navigate("/qr-generator")} icon={<QrCode width={"1rem"}/>} title={"QR Generator"}/>
+            <Directive width={"100%"} onClick={()=>navigate("/records")} icon={<FileArchive color='violet' width={"1.25rem"}/>} title={"Records"}/>
+            <Directive width={"100%"} onClick={()=>navigate("/users")} icon={<UsersIcon color='salmon' width={"1.25rem"}/>} title={"User Management"}/>
+            <Directive width={"100%"} onClick={()=>navigate("/quick-links")}  icon={<LinkIcon width={"1.25rem"} color='mediumslateblue'/>} title={"Quick Links"}/>
+            <Directive width={"100%"} onClick={()=>navigate("/qr-generator")} icon={<QrCode width={"1.25rem"}/>} title={"QR Generator"}/>
         </div>
 
       {/* <div className="max-w-4xl mx-auto space-y-6">
