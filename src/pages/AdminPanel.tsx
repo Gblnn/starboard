@@ -25,7 +25,7 @@ export const AdminPanel = () => {
   return (
     
     <div style={{display:"flex", border:"", height:"100svh"}}>
-        <Back icon={<img src='/starboard-logo.png' style={{width:"2rem", border:""}}/>} fixed title={"StarBoard"} subtitle={"2.1"} noback extra={
+        <Back blurBG fixed title={"StarBoard"} subtitle={"2.1"} noback extra={
         //     <Button style={{background:"crimson", color:"white"}} onClick={handleLogout} variant="ghost">
         //     Logout
         //   </Button>
