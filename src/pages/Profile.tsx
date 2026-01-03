@@ -1,20 +1,19 @@
+import Back from '@/components/back';
+import Directive from '@/components/directive';
+import { User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../components/ui/button';
-import { ChevronLeft } from 'lucide-react';
 
 export const Profile = () => {
   const { user } = useAuth();
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background p-8" style={{width:"100svw"}}>
+    <div className="min-h-screen bg-background " style={{width:"100svw"}}>
+        <Back fixed/>
       <div className="max-w-2xl mx-auto space-y-6">
-        <Button onClick={() => navigate('/dashboard')} variant="outline" style={{background:"none"}}>
-          <ChevronLeft/>
-        </Button>
+        <Directive icon={<User/>} title={user?.name}/>
         
-        <div className="bg-card p-8 rounded-lg shadow">
+        {/* <div className="bg-card p-8 rounded-lg shadow">
           <h1 className="text-3xl font-bold mb-6">User Profile</h1>
           <div className="space-y-4">
             <div>
@@ -42,7 +41,7 @@ export const Profile = () => {
               <p className="text-lg font-mono">{user?.id}</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

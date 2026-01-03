@@ -117,7 +117,7 @@ export const Login = () => {
 
             <div className="flex items-center justify-between py-2">
               <Link
-              style={{color:"crimson",fontWeight:"600", fontSize:"0.85rem", marginLeft:"0.5rem"}}
+              style={{color:"mediumslateblue",fontWeight:"600", fontSize:"0.85rem", marginLeft:"0.5rem"}}
                 className="text-xs sm:text-sm font-semibold hover:underline"
                 to={"/user-reset"}
               >
@@ -126,7 +126,7 @@ export const Login = () => {
             </div>
 
             <Button
-            style={{padding:"1.5rem", fontSize:"1rem", background:"crimson"}}
+            style={{padding:"1.5rem", fontSize:"1rem", background:"midnightblue"}}
               onClick={handleSubmit}
               disabled={loading}
               className={`bg-[#191970] text-white py-3 px-6 rounded-lg flex items-center justify-center gap-3 hover:bg-[#191970]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
@@ -144,8 +144,8 @@ export const Login = () => {
               If you do not have an account you can create one, if your email exists on our system.
             </p>
             <Button
-            style={{padding:"1.4rem",width:"100%", fontWeight:600, fontSize:"0.85rem", background:"rgba(100 100 100/ 10%)" }}
-              className="text-sm font-bold text-[darkslateblue] hover:underline"
+            style={{padding:"1.4rem",width:"100%", fontWeight:600, fontSize:"0.85rem", background:"rgba(100 100 100/ 15%)" }}
+              className="text-sm font-bold text-[mediumslateblue] hover:underline"
 
             >
                 <UserPlus/>

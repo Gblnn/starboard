@@ -16,6 +16,8 @@ import { Profile } from './pages/Profile'
 import { Register } from './pages/Register'
 import { Unauthorized } from './pages/Unauthorized'
 import QRCodeGenerator from './pages/qr-code'
+import Users from './pages/Users'
+import QuickLinks from './pages/quick-links'
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/qr-generator" element={<QRCodeGenerator />} />
+              <Route path="/users" element={<Users/>} />
+              <Route path="/quick-links" element={<QuickLinks/>} />
             </Route>
 
             {/* Redirects */}

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import DefaultDialog from '@/components/default-dialog';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { motion } from 'framer-motion';
 
 export const AdminPanel = () => {
   const { logout } = useAuth();
@@ -24,7 +25,7 @@ export const AdminPanel = () => {
 
   return (
     
-    <div style={{display:"flex", border:"", height:"100svh"}}>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{display:"flex", border:"", height:"100svh"}}>
         <Back blurBG fixed title={"StarBoard"} subtitle={"2.1"} noback extra={
         //     <Button style={{background:"crimson", color:"white"}} onClick={handleLogout} variant="ghost">
         //     Logout
@@ -37,8 +38,8 @@ export const AdminPanel = () => {
           />
 
         <div style={{border:"", display:"flex", width:"100%", justifyContent:"", alignItems:"flex-start", padding:"1rem", marginTop:"4rem", overflowY:"auto", flexFlow:"column", gap:"0.5rem"}}>
-            <Directive width={"100%"} icon={<UsersIcon color='dodgerblue' width={"1rem"}/>} title={"User Management"}/>
-            <Directive width={"100%"}  icon={<LinkIcon width={"1rem"}/>} title={"Quick Links"}/>
+            <Directive width={"100%"} onClick={()=>navigate("/users")} icon={<UsersIcon color='salmon' width={"1rem"}/>} title={"User Management"}/>
+            <Directive width={"100%"} onClick={()=>navigate("/quick-links")}  icon={<LinkIcon width={"1rem"} color='mediumslateblue'/>} title={"Quick Links"}/>
             <Directive width={"100%"} onClick={()=>navigate("/qr-generator")} icon={<QrCode width={"1rem"}/>} title={"QR Generator"}/>
         </div>
 
@@ -86,6 +87,6 @@ export const AdminPanel = () => {
         </div>
       </div> */}
       <DefaultDialog open={logoutPrompt} title={"Confirm Logout?"} onOk={handleLogout} OkButtonText='Logout' onCancel={() => setLogoutPrompt(false)}/>
-    </div>
+    </motion.div>
   );
 };
