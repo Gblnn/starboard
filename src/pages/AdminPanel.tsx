@@ -37,7 +37,7 @@ export const AdminPanel = () => {
           />
 
         <div style={{border:"", display:"flex", width:"100%", justifyContent:"", alignItems:"flex-start", padding:"1rem", marginTop:"4rem", overflowY:"auto", flexFlow:"column", gap:"0.5rem"}}>
-            <Directive width={"100%"} icon={<UsersIcon width={"1rem"}/>} title={"User Management"}/>
+            <Directive width={"100%"} icon={<UsersIcon color='dodgerblue' width={"1rem"}/>} title={"User Management"}/>
             <Directive width={"100%"} icon={<LinkIcon width={"1rem"}/>} title={"Quick Links"}/>
             <Directive width={"100%"} icon={<QrCode width={"1rem"}/>} title={"QR Generator"}/>
         </div>
