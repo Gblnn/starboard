@@ -12,12 +12,12 @@ import {
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAkMOLbM4WB-tBxsMHxYuH4eybZzxkj6xg",
-  authDomain: "starboard-a05fa.firebaseapp.com",
-  projectId: "starboard-a05fa",
-  storageBucket: "starboard-a05fa.firebasestorage.app",
-  messagingSenderId: "549179505258",
-  appId: "1:549179505258:web:85eed0afa2df02d7dea813"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase with performance settings
