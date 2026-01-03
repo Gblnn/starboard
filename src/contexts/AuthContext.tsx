@@ -123,8 +123,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const cachedUser = getCachedUserData();
     if (cachedUser) {
       setUser(cachedUser);
-      setIsLoading(false);
     }
+    
+    // Set loading to false immediately to show login screen faster
+    // Firebase auth will update user state in the background
+    setIsLoading(false);
 
     // Subscribe to Firebase auth state changes
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -149,7 +152,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setUser(null);
         clearCachedUserData();
       }
-      setIsLoading(false);
     });
 
     return () => unsubscribe();
