@@ -7,15 +7,52 @@ export const registerServiceWorker = () => {
         .then((registration) => {
           console.log('ServiceWorker registered:', registration);
           
+          // Check for updates when app becomes visible
+          document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+              registration.update();
+            }
+          });
+          
           // Check for updates periodically
           setInterval(() => {
             registration.update();
           }, 60000); // Check every minute
+
+          // Listen for waiting service worker
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New service worker is ready to take over
+                  // Dispatch custom event to show update notification
+                  window.dispatchEvent(new CustomEvent('pwa-update-available', {
+                    detail: { registration }
+                  }));
+                }
+              });
+            }
+          });
         })
         .catch((error) => {
           console.log('ServiceWorker registration failed:', error);
         });
+
+      // Listen for controller change (when new SW takes over)
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        // Reload the page to load new version
+        window.location.reload();
+      });
     });
+  }
+};
+
+// Update the app to use new service worker
+export const updateApp = () => {
+  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
   }
 };
 

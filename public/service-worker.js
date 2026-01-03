@@ -20,7 +20,14 @@ self.addEventListener('install', (event) => {
         console.log('Cache failed:', err);
       })
   );
-  self.skipWaiting();
+  // Don't auto-activate, wait for user confirmation
+});
+
+// Listen for skip waiting message
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 // Fetch event - serve from cache, fallback to network

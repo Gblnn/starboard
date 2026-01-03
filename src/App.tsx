@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { RoleBasedRedirect } from './components/RoleBasedRedirect'
+import { UpdateNotification } from './components/UpdateNotification'
 import { Toaster } from './components/ui/sonner'
 import { ThemeProvider } from './components/ui/theme-provider'
 import { AuthProvider } from './contexts/AuthContext'
@@ -45,6 +46,7 @@ function App() {
           </Routes>
         </BrowserRouter>
         <Toaster />
+        <UpdateNotification />
       </AuthProvider>
     </ThemeProvider>
   )
