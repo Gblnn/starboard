@@ -56,7 +56,7 @@ export const Login = () => {
           <img src="/starboard-logo.png" className="w-16 h-16 object-contain" alt="StarBoard Logo" />
           <div className="flex items-center gap-3">
             <p className="font-normal text-4xl text-white">StarBoard</p>
-            <p className="text-white/80">v2.0</p>
+            <p className="text-white/80">2.1</p>
           </div>
         </div>
       </div>

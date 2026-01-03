@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import DefaultDialog from '@/components/default-dialog';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export const AdminPanel = () => {
   const { logout } = useAuth();
@@ -28,7 +29,10 @@ export const AdminPanel = () => {
         //     <Button style={{background:"crimson", color:"white"}} onClick={handleLogout} variant="ghost">
         //     Logout
         //   </Button>
-        <IndexDropDown onLogout={()=>setLogoutPrompt(true)} onProfile={()=>navigate("/profile")}/>
+        <div style={{display:"flex", gap:"0.5rem", alignItems:"center"}}>
+            <ThemeToggle/>
+            <IndexDropDown onLogout={()=>setLogoutPrompt(true)} onProfile={()=>navigate("/profile")}/>
+        </div>
           }
           />
 
