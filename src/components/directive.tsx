@@ -95,7 +95,7 @@ export default function Directive(props: Props) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          background: "rgba(100 100 100/ 0.15)",
+          background: "rgba(100 100 100/ 0.12)",
           borderRadius: "0.5rem",
           // border: "1px solid rgba(100 100 100/ 0.2)",
           transition: "all 0.2s ease",
@@ -206,9 +206,9 @@ export default function Directive(props: Props) {
             {props.id_subtitle && (
               <p
                 style={{
-                  fontSize: "0.6rem",
+                  fontSize: "0.75rem",
                   textAlign: "left",
-                  color: "dodgerblue",
+                //   color: "salmon",
                   opacity: "0.75",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
