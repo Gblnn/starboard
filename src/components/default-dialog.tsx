@@ -144,7 +144,7 @@ export default function DefaultDialog(props: Props) {
                         <p
                           style={{
                             border: "",
-                            fontWeight:500,
+                            fontWeight:600,
                             // maxWidth: "150px",
                             textOverflow: "ellipsis",
                             textAlign: "left",
@@ -658,7 +658,7 @@ export default function DefaultDialog(props: Props) {
                     
                     id="okBtn"
                     onClick={props.updating ? null : props.onOk}
-                    style={{ flex: 1, padding:"0.25rem", display:"flex", justifyContent:"center", alignItems:"center", background:"crimson", color:"white" }}
+                    style={{ flex: 1, padding:"0.5rem", display:"flex", justifyContent:"center", alignItems:"center", background:"crimson", color:"white" }}
                   >
                     {props.sendmail ? (
                       <a
@@ -685,7 +685,7 @@ export default function DefaultDialog(props: Props) {
 
                   <button
                     className={props.updating ? "disabled" : ""}
-                    style={{ flex: 1, padding:"0.25rem", display:"flex", justifyContent:"center", alignItems:"center", background:"rgba(100 100 100/ 20%)" }}
+                    style={{ flex: 1, padding:"0.5rem", display:"flex", justifyContent:"center", alignItems:"center", background:"rgba(100 100 100/ 20%)" }}
                     id="cancelBtn"
                     onClick={props.updating ? null : props.onCancel}
                 

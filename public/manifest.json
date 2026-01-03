@@ -1,6 +1,6 @@
 {
-    "theme_color":"#000000",
-    "background_color":"#000000",
+    "theme_color":"#191970",
+    
     "icons":[
         {
             "purpose":"maskable",
@@ -21,8 +21,8 @@
     "lang":"en-US",
     "name":"StarBoard",
     "short_name":"StarBoard",
-    "start_url":"https://starboard-test.netlify.app/",
-    "scope":"https://starboard-test.netlify.app",
+    "start_url":"/",
+    "scope":"/",
     "description":"Maintain personal records and get notified about important dates",
     "screenshots": [    
    {
