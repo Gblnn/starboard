@@ -15,7 +15,7 @@ export const ProtectedRoute = ({
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen fade-in">
         <div className="text-lg"><Loader2 className='animate-spin'/></div>
       </div>
     );

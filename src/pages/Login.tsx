@@ -47,16 +47,16 @@ export const Login = () => {
   };
 
   return (
-    <div className="flex p-4 sm:p-5 h-screen w-full" style={{width:"100svw"}}>
+    <div className="flex p-4 sm:p-5 h-screen w-full fade-in" style={{width:"100svw"}}>
       {/* Left side - Desktop only gradient panel */}
       <div
         className="hidden lg:flex flex-1 bg-gradient-to-br from-[#191970] to-[crimson] items-end rounded-2xl"
       >
         <div className="flex items-center m-8 gap-3">
-          <img src="/starboard-logo.png" className="w-16 h-16 object-contain" alt="StarBoard Logo" />
+          {/* <img src="/starboard-logo.png" className="w-16 h-16 object-contain" alt="StarBoard Logo" /> */}
           <div className="flex items-center gap-3">
             <p className="font-normal text-4xl text-white">StarBoard</p>
-            <p className="text-white/80">2.1</p>
+            {/* <p className="text-white/80">2.1</p> */}
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ export const Login = () => {
       {/* Right side - Login form */}
       <div className="flex flex-1 h-full justify-center items-center flex-col w-full">
         {/* Mobile logo */}
-        <div style={{border:"", padding:""}} className="lg:hidden flex items-center gap-3 mb-8">
+        <div style={{border:"", padding:""}} className=" flex items-center gap-3 mb-8">
           <img src="/starboard-logo.png" className="w-12 h-12 object-contain" alt="StarBoard Logo" />
           <div className="flex items-center gap-2">
             <p style={{fontSize:"1.75rem", fontWeight:"500"}} className="font-semibold text-2xl">StarBoard</p>
@@ -74,7 +74,7 @@ export const Login = () => {
 
         <div className="flex justify-center items-center flex-col rounded-2xl w-full max-w-md px-4">
           <div className="flex flex-col w-full gap-3 mt-8">
-            <h2 className="text-3xl sm:text-4xl font-semibold pl-2 mb-2">
+            <h2 className="text-3xl sm:hidden font-semibold pl-2 mb-2">
               LOGIN
             </h2>
 
